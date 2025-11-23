@@ -118,7 +118,7 @@ class CheckJatuhTempo7Hari extends Command
         }
 
         $message .= "Terima kasih atas perhatiannya.\n\n";
-        $message .= "Lakukan konfirmasi pembayaran pajak pada http://103.226.139.107/.";
+        $message .= "Lakukan konfirmasi pembayaran pajak pada https://sipanda-kesbangpol.iknproject.site/";
 
         try {
             $response = Http::withHeaders([
