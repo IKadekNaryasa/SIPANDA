@@ -8,5 +8,5 @@ Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->purpose('Display an inspiring quote');
 
-Schedule::command('samsat:check-jatuh-tempo')->monthlyOn(23, '08:45')->timezone('Asia/Makassar');
-Schedule::command('samsat:check-jatuh-tempo-7hari')->dailyAt('08:50')->timezone('Asia/Makassar');
+Schedule::command('samsat:check-jatuh-tempo')->monthlyOn(23, '09:00')->timezone('Asia/Makassar');
+Schedule::command('samsat:check-jatuh-tempo-7hari')->dailyAt('08:55')->timezone('Asia/Makassar');
