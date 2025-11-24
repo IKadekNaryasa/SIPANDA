@@ -1,2 +1,4 @@
 User-agent: *
-Disallow:
+Allow: /
+
+Sitemap: https://sipanda-kesbangpol.iknproject.site/sitemap.xml

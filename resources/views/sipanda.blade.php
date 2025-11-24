@@ -7,7 +7,25 @@
     <title>SI-PANDA Kesbangpol Buleleng</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+    <script type="application/ld+json">
+        @verbatim {
+            "@context": "https://schema.org",
+            "@type": "GovernmentOrganization",
+            "name": "SI-PANDA Kesbangpol Buleleng",
+            "description": "Sistem Informasi Pembayaran Pajak Kendaraan Dinas Operasional Kesbangpol Buleleng",
+            "url": "https://sipanda-kesbangpol.iknproject.site",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Jl. Sudirman No.60",
+                "addressLocality": "Singaraja",
+                "addressRegion": "Bali",
+                "addressCountry": "ID"
+            },
+            "telephone": "(0362) 3312427",
+            "email": "bkbp@bulelengkab.go.id"
+        }
+        @endverbatim
+    </script>
 </head>
 
 <body class="bg-gray-50">
@@ -35,115 +53,120 @@
     </script>
     @endif
     <!-- Navbar -->
-    <nav class="bg-white shadow-md sticky top-0 z-50">
-        <div class="container mx-auto px-4 sm:px-6 py-3 sm:py-4">
-            <div class="flex items-center justify-between">
-                <!-- Logo -->
-                <div class="flex items-center space-x-2 sm:space-x-3">
-                    <div class="w-10 h-10 sm:w-12 sm:h-12 bg-linear-to-br from-blue-600 to-blue-400 rounded-lg flex items-center justify-center shrink-0">
-                        <svg class="w-6 h-6 sm:w-8 sm:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                        </svg>
+    <header>
+        <nav class="bg-white shadow-md sticky top-0 z-50">
+            <div class="container mx-auto px-4 sm:px-6 py-3 sm:py-4">
+                <div class="flex items-center justify-between">
+                    <!-- Logo -->
+                    <div class="flex items-center space-x-2 sm:space-x-3">
+                        <div class="w-10 h-10 sm:w-12 sm:h-12 bg-linear-to-br from-blue-600 to-blue-400 rounded-lg flex items-center justify-center shrink-0">
+                            <svg class="w-6 h-6 sm:w-8 sm:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h1 class="text-base sm:text-xl font-bold text-gray-800">SI-PANDA</h1>
+                            <p class="text-xs text-gray-600 hidden sm:block">Kesbangpol Buleleng</p>
+                        </div>
                     </div>
-                    <div>
-                        <h1 class="text-base sm:text-xl font-bold text-gray-800">SI-PANDA</h1>
-                        <p class="text-xs text-gray-600 hidden sm:block">Kesbangpol Buleleng</p>
-                    </div>
-                </div>
 
-                <!-- Menu Login -->
-                <div>
-                    <a href="{{ route('login') }}" class="bg-blue-600 hover:bg-blue-700 text-white px-4 sm:px-6 py-2 rounded-lg font-medium transition duration-300 flex items-center space-x-1 sm:space-x-2 text-sm sm:text-base">
-                        <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"></path>
-                        </svg>
-                        <span>Login</span>
-                    </a>
+                    <!-- Menu Login -->
+                    <div>
+                        <a href="{{ route('login') }}" class="bg-blue-600 hover:bg-blue-700 text-white px-4 sm:px-6 py-2 rounded-lg font-medium transition duration-300 flex items-center space-x-1 sm:space-x-2 text-sm sm:text-base">
+                            <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"></path>
+                            </svg>
+                            <span>Login</span>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
     <!-- Hero Section -->
-    <div class="container mx-auto px-4 sm:px-6 py-8 sm:py-12 lg:py-0">
-        <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            <!-- Content -->
-            <div class="space-y-4 sm:space-y-6">
-                <div>
-                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-800 mb-2">SI-PANDA</h2>
-                    <h3 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-blue-600 mb-4 sm:mb-6">Kesbangpol Buleleng</h3>
-                </div>
+    <main>
+        <section class="container mx-auto px-4 sm:px-6 py-8 sm:py-12 lg:py-0">
+            <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                <!-- Content -->
+                <div class="space-y-4 sm:space-y-6">
+                    <div>
+                        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-800 mb-2">SI-PANDA</h2>
+                        <h3 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-blue-600 mb-4 sm:mb-6">Kesbangpol Buleleng</h3>
+                    </div>
 
-                <p class="text-gray-600 text-base sm:text-lg leading-relaxed">
-                    Selamat Datang di Sistem Informasi Pembayaran Pajak Kendaraan Dinas Operasional Kesbangpol Buleleng
-                </p>
-
-                <div class="bg-white p-4 sm:p-6 rounded-xl shadow-lg border border-gray-100">
-                    <h4 class="font-semibold text-gray-800 mb-3 flex items-center text-sm sm:text-base">
-                        <svg class="w-5 h-5 text-blue-600 mr-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
-                        Tentang Aplikasi
-                    </h4>
-                    <p class="text-gray-600 leading-relaxed text-sm sm:text-base">
-                        <span class="font-semibold text-blue-600">SI-PANDA Kesbangpol Buleleng</span> adalah sistem informasi yang dirancang untuk mengelola dan menyimpan data kendaraan dinas Kesbangpol Buleleng secara digital dan terstruktur.
+                    <p class="text-gray-600 text-base sm:text-lg leading-relaxed">
+                        Selamat Datang di Sistem Informasi Pembayaran Pajak Kendaraan Dinas Operasional Kesbangpol Buleleng
                     </p>
-                    <p class="text-gray-600 leading-relaxed mt-3 text-sm sm:text-base">
-                        Dilengkapi dengan fitur <span class="font-semibold text-orange-600">Pengingat Otomatis</span> yang akan memberikan notifikasi pengingat ketika kendaraan dinas mendekati atau telah jatuh tempo pembayaran pajak (SAMSAT), sehingga memastikan seluruh kendaraan dinas selalu taat administrasi dan terhindar dari denda keterlambatan.
-                    </p>
-                </div>
 
-            </div>
-
-            <!-- Illustration -->
-            <div class="relative order-first lg:order-last">
-                <div class="relative z-10">
-                    <img src="{{ asset('img/sipanda.png') }}" alt="Data Management Illustration" class="w-full h-auto drop-shadow-2xl">
-                </div>
-                <!-- Decorative Elements -->
-                <div class="absolute top-10 right-10 w-16 h-16 sm:w-20 sm:h-20 bg-blue-200 rounded-full opacity-50 animate-pulse"></div>
-                <div class="absolute bottom-10 left-10 w-12 h-12 sm:w-16 sm:h-16 bg-orange-200 rounded-full opacity-50 animate-pulse" style="animation-delay: 1s;"></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Features Section -->
-    <div class="bg-white py-12 sm:py-16">
-        <div class="container mx-auto px-4 sm:px-6">
-            <h3 class="text-2xl sm:text-3xl font-bold text-center text-gray-800 mb-8 sm:mb-12">Fitur Unggulan</h3>
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-                <div class="text-center p-4 sm:p-6 rounded-xl hover:shadow-xl transition duration-300 border border-gray-100">
-                    <div class="w-14 h-14 sm:w-16 sm:h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                        <svg class="w-7 h-7 sm:w-8 sm:h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
-                        </svg>
+                    <div class="bg-white p-4 sm:p-6 rounded-xl shadow-lg border border-gray-100">
+                        <h4 class="font-semibold text-gray-800 mb-3 flex items-center text-sm sm:text-base">
+                            <svg class="w-5 h-5 text-blue-600 mr-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            Tentang Aplikasi
+                        </h4>
+                        <p class="text-gray-600 leading-relaxed text-sm sm:text-base">
+                            <span class="font-semibold text-blue-600">SI-PANDA Kesbangpol Buleleng</span> adalah sistem informasi yang dirancang untuk mengelola dan menyimpan data kendaraan dinas Kesbangpol Buleleng secara digital dan terstruktur.
+                        </p>
+                        <p class="text-gray-600 leading-relaxed mt-3 text-sm sm:text-base">
+                            Dilengkapi dengan fitur <span class="font-semibold text-orange-600">Pengingat Otomatis</span> yang akan memberikan notifikasi pengingat ketika kendaraan dinas mendekati atau telah jatuh tempo pembayaran pajak (SAMSAT), sehingga memastikan seluruh kendaraan dinas selalu taat administrasi dan terhindar dari denda keterlambatan.
+                        </p>
                     </div>
-                    <h4 class="font-bold text-base sm:text-lg mb-2 text-gray-800">Database Terpusat</h4>
-                    <p class="text-gray-600 text-sm sm:text-base">Semua data kendaraan dinas tersimpan dalam satu sistem</p>
+
                 </div>
 
-                <div class="text-center p-4 sm:p-6 rounded-xl hover:shadow-xl transition duration-300 border border-gray-100">
-                    <div class="w-14 h-14 sm:w-16 sm:h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                        <svg class="w-7 h-7 sm:w-8 sm:h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
+                <!-- Illustration -->
+                <div class="relative order-first lg:order-last">
+                    <div class="relative z-10">
+                        <img src="{{ asset('img/sipanda.png') }}" alt="Data Management Illustration" class="w-full h-auto drop-shadow-2xl">
                     </div>
-                    <h4 class="font-bold text-base sm:text-lg mb-2 text-gray-800">Monitoring Jatuh Tempo</h4>
-                    <p class="text-gray-600 text-sm sm:text-base">Pantau tanggal jatuh tempo pajak SAMSAT setiap kendaraan dengan mudah</p>
-                </div>
-
-                <div class="text-center p-4 sm:p-6 rounded-xl hover:shadow-xl transition duration-300 border border-gray-100 sm:col-span-2 lg:col-span-1">
-                    <div class="w-14 h-14 sm:w-16 sm:h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                        <svg class="w-7 h-7 sm:w-8 sm:h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
-                        </svg>
-                    </div>
-                    <h4 class="font-bold text-base sm:text-lg mb-2 text-gray-800">Notifikasi Otomatis</h4>
-                    <p class="text-gray-600 text-sm sm:text-base">Dapatkan pengingat otomatis sebelum masa berlaku pajak habis</p>
+                    <!-- Decorative Elements -->
+                    <div class="absolute top-10 right-10 w-16 h-16 sm:w-20 sm:h-20 bg-blue-200 rounded-full opacity-50 animate-pulse"></div>
+                    <div class="absolute bottom-10 left-10 w-12 h-12 sm:w-16 sm:h-16 bg-orange-200 rounded-full opacity-50 animate-pulse" style="animation-delay: 1s;"></div>
                 </div>
             </div>
-        </div>
-    </div>
+        </section>
+
+
+        <!-- Features Section -->
+        <section class="bg-white py-12 sm:py-16">
+            <div class="container mx-auto px-4 sm:px-6">
+                <h3 class="text-2xl sm:text-3xl font-bold text-center text-gray-800 mb-8 sm:mb-12">Fitur Unggulan</h3>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                    <div class="text-center p-4 sm:p-6 rounded-xl hover:shadow-xl transition duration-300 border border-gray-100">
+                        <div class="w-14 h-14 sm:w-16 sm:h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                            <svg class="w-7 h-7 sm:w-8 sm:h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                            </svg>
+                        </div>
+                        <h4 class="font-bold text-base sm:text-lg mb-2 text-gray-800">Database Terpusat</h4>
+                        <p class="text-gray-600 text-sm sm:text-base">Semua data kendaraan dinas tersimpan dalam satu sistem</p>
+                    </div>
+
+                    <div class="text-center p-4 sm:p-6 rounded-xl hover:shadow-xl transition duration-300 border border-gray-100">
+                        <div class="w-14 h-14 sm:w-16 sm:h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                            <svg class="w-7 h-7 sm:w-8 sm:h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="font-bold text-base sm:text-lg mb-2 text-gray-800">Monitoring Jatuh Tempo</h4>
+                        <p class="text-gray-600 text-sm sm:text-base">Pantau tanggal jatuh tempo pajak SAMSAT setiap kendaraan dengan mudah</p>
+                    </div>
+
+                    <div class="text-center p-4 sm:p-6 rounded-xl hover:shadow-xl transition duration-300 border border-gray-100 sm:col-span-2 lg:col-span-1">
+                        <div class="w-14 h-14 sm:w-16 sm:h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                            <svg class="w-7 h-7 sm:w-8 sm:h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+                            </svg>
+                        </div>
+                        <h4 class="font-bold text-base sm:text-lg mb-2 text-gray-800">Notifikasi Otomatis</h4>
+                        <p class="text-gray-600 text-sm sm:text-base">Dapatkan pengingat otomatis sebelum masa berlaku pajak habis</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer class="bg-[#0a2e4d] text-white py-8 sm:py-12">

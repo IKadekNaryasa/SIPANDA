@@ -6,23 +6,39 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-    <title>SI-PANDA | {{ $title }}</title>
+    <title>{{ $title ?? 'SI-PANDA Kesbangpol Buleleng - Sistem Informasi Pembayaran Pajak Kendaraan Dinas' }}</title>
 
-    <meta name="description" content="" />
+    <meta name="description" content="{{ $description ?? 'SI-PANDA adalah sistem informasi pembayaran pajak kendaraan dinas operasional Kesbangpol Buleleng dengan fitur notifikasi otomatis jatuh tempo SAMSAT' }}" />
 
-    <!-- Favicon -->
+    <meta name="keywords" content="SI-PANDA,sipanda kesbangpol, Kesbangpol Buleleng, pajak kendaraan dinas, SAMSAT, sistem informasi, Singaraja, Buleleng" />
+
+    <meta name="author" content="Prakom Kesbangpol Buleleng" />
+
+    <meta name="robots" content="index, follow" />
+
+    <link rel="canonical" href="{{ url()->current() }}" />
+
+    <meta property="og:title" content="{{ $title ?? 'SI-PANDA Kesbangpol Buleleng' }}" />
+    <meta property="og:description" content="{{ $description ?? 'Sistem Informasi Pembayaran Pajak Kendaraan Dinas Operasional Kesbangpol Buleleng' }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{{ url()->current() }}" />
+    <meta property="og:image" content="{{ asset('img/sipanda.png') }}" />
+    <meta property="og:site_name" content="SI-PANDA Kesbangpol Buleleng" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="{{ $title ?? 'SI-PANDA Kesbangpol Buleleng' }}" />
+    <meta name="twitter:description" content="{{ $description ?? 'Sistem Informasi Pembayaran Pajak Kendaraan Dinas Operasional' }}" />
+    <meta name="twitter:image" content="{{ asset('img/sipanda.png') }}" />
+
     <link rel="icon" type="image/x-icon" href="{{ asset('ikn_sneat/assets/img/favicon/favicon.ico') }}?v={{ time() }}" />
 
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css"> -->
     <link rel="stylesheet" href="https://cdn.datatables.net/2.3.4/css/dataTables.dataTables.min.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
         rel="stylesheet" />
 
-    <!-- Icons. Uncomment required icon fonts -->
     <link rel="stylesheet" href="{{ asset('ikn_sneat') }}/assets/vendor/fonts/boxicons.css" />
 
     <!-- Core CSS -->
@@ -45,6 +61,25 @@
     <script src="{{ asset('ikn_sneat') }}/assets/js/config.js"></script>
 
     <!-- <script src="https://kit.fontawesome.com/9254364d26.js" crossorigin="anonymous"></script> -->
+    <script type="application/ld+json">
+        @verbatim {
+            "@context": "https://schema.org",
+            "@type": "GovernmentOrganization",
+            "name": "SI-PANDA Kesbangpol Buleleng",
+            "description": "Sistem Informasi Pembayaran Pajak Kendaraan Dinas Operasional Kesbangpol Buleleng",
+            "url": "https://sipanda-kesbangpol.iknproject.site",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Jl. Sudirman No.60",
+                "addressLocality": "Singaraja",
+                "addressRegion": "Bali",
+                "addressCountry": "ID"
+            },
+            "telephone": "(0362) 3312427",
+            "email": "bkbp@bulelengkab.go.id"
+        }
+        @endverbatim
+    </script>
 </head>
 
 <body>
@@ -178,7 +213,7 @@
                                             <div class="d-flex">
                                                 <div class="shrink-0 me-3">
                                                     <div class="avatar avatar-online">
-                                                        <img src="{{ asset('img/taatsamsat.png') }}" alt class="w-px-40 h-auto rounded-circle" />
+                                                        <img src="{{ asset('img/sipanda.png') }}" alt class="w-px-40 h-auto rounded-circle" />
                                                     </div>
                                                 </div>
                                                 <div class="grow">
