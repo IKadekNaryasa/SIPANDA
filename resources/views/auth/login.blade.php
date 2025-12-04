@@ -36,7 +36,8 @@
 
     <!-- Helpers -->
     <script src="{{ asset('ikn_sneat') }}/assets/vendor/js/helpers.js"></script>
-
+    <!-- Google reCAPTCHA -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="{{ asset('ikn_sneat') }}/assets/js/config.js"></script>
@@ -108,14 +109,18 @@
                                     <div class="mb-3">
                                         <label for="nip" class="form-label">NIP</label>
                                         <input
-                                            type="number"
-                                            class="form-control"
+                                            type="text"
+                                            class="form-control @error('nip') is-invalid @enderror"
                                             id="nip"
                                             name="nip"
-                                            value="<?= old('nip'); ?>"
+                                            value="{{ old('nip') }}"
                                             placeholder="Enter your nip"
                                             autofocus />
+                                        @error('nip')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
                                     </div>
+
                                     <div class="mb-3 form-password-toggle">
                                         <div class="d-flex justify-content-between">
                                             <label class="form-label" for="password">Password</label>
@@ -124,15 +129,22 @@
                                             <input
                                                 type="password"
                                                 id="password"
-                                                class="form-control"
+                                                class="form-control @error('password') is-invalid @enderror"
                                                 name="password"
                                                 placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
-                                                aria-describedby="password" required />
+                                                aria-describedby="password" />
                                             <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                                         </div>
-                                        <!-- <a href="">
-                                            <small>Forgot Password?</small>
-                                        </a> -->
+                                        @error('password')
+                                        <div class="text-danger mt-1" style="font-size: 0.875rem;">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+
+                                    <div class="mb-3">
+                                        {!! NoCaptcha::display() !!}
+                                        @error('g-recaptcha-response')
+                                        <span class="text-danger d-block mt-2" style="font-size: 0.875rem;">{{ $message }}</span>
+                                        @enderror
                                     </div>
 
                                     <div class="mb-3">

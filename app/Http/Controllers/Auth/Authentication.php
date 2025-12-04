@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use PhpParser\Node\Stmt\Case_;
+use Anhskohbo\NoCaptcha\Facades\NoCaptcha;
 
 class Authentication extends Controller
 {
@@ -19,20 +20,23 @@ class Authentication extends Controller
     {
         $validated = $request->validate([
             'nip' => 'required|numeric|min:18',
-            'password' => 'required|string|min:8'
+            'password' => 'required|string|min:8',
+            'g-recaptcha-response' => 'required|captcha',
         ], [
             'nip.numeric' => 'NIP harus berupa Angka!',
             'nip.required' => 'NIP tidak boleh kosong!',
             'nip.min' => 'NIP harus berupa minimal 18 angka',
             'password.required' => 'Password tidak boleh kosong',
             'password.string' => 'Password Harus berupa angka/huruf',
-            'password.min' => 'Password minimal 8 karakter'
+            'password.min' => 'Password minimal 8 karakter',
+            'g-recaptcha-response.required' => 'Silakan verifikasi bahwa Anda bukan robot.',
+            'g-recaptcha-response.captcha' => 'Verifikasi captcha gagal. Silakan coba lagi.',
         ]);
 
         $data = [
             'nip' => strip_tags($validated['nip']),
             'password' => strip_tags($validated['password']),
-            'status' => 'active'
+            'status' => 'active',
         ];
 
         try {
@@ -41,11 +45,12 @@ class Authentication extends Controller
                 $user = Auth::user();
 
                 if (!$user) {
-                    return redirect()->back()->withErrors(['errors' => 'NIP atau Password Salah!'])->withInput();
+                    return redirect()->back()->withErrors(['errors' => 'NIP atau Password Salah!'])->withInput($request->only('nip'));
                 }
 
-                $role = Auth::user()->role;
+                $role = $user->role;
                 $route = '';
+
                 switch ($role) {
                     case 'admin':
                         $route = 'dashboard.index';
@@ -61,12 +66,12 @@ class Authentication extends Controller
                         return redirect()->route('login')->withErrors(['errors' => 'NIP atau Password Salah!']);
                 }
 
-                return redirect()->route($route)->with('success', 'Selamat Datang ' . Auth::user()->name);
-            } else {
-                return redirect()->back()->withErrors(['errors' => 'NIP atau Password Salah!'])->withInput();
-            };
+                return redirect()->route($route)->with('success', 'Selamat Datang ' . $user->name);
+            }
+
+            return redirect()->back()->withErrors(['errors' => 'NIP atau Password Salah!'])->withInput($request->only('nip'));
         } catch (Exception $e) {
-            return redirect()->back()->withErrors(['errors' => 'NIP atau Password Salah!'])->withInput();
+            return redirect()->back()->withErrors(['errors' => 'Terjadi kesalahan. Silakan coba lagi.'])->withInput($request->only('nip'));
         }
     }
 
