@@ -21,7 +21,7 @@
                             <td style="font-size: small;" class="text-start">{{ $samsat->kendaraan->kode_barang }}</td>
                             <td style="font-size: small;" class="text-start">{{ $samsat->kendaraan->N_polisi ?? 'On-Sett' }}</td>
                             <td style="font-size: small;" class="text-start">{{ $samsat->tgl_samsat }}</td>
-                            <td style="font-size: small;" class="text-start">{{ $samsat->biaya }}</td>
+                            <td style="font-size: small;" class="text-start">Rp. {{ number_format($samsat->biaya,2,',','.') }}</td>
                         </tr>
                         @endforeach
                     </tbody>
