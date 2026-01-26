@@ -7,29 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
     <title>{{ $title ?? 'SI-PANDA Kesbangpol Buleleng - Sistem Informasi Pembayaran Pajak Kendaraan Dinas' }}</title>
-
-    <meta name="description" content="{{ $description ?? 'SI-PANDA adalah sistem informasi pembayaran pajak kendaraan dinas operasional Kesbangpol Buleleng dengan fitur notifikasi otomatis jatuh tempo SAMSAT' }}" />
-
-    <meta name="keywords" content="SI-PANDA,sipanda kesbangpol, Kesbangpol Buleleng, pajak kendaraan dinas, SAMSAT, sistem informasi, Singaraja, Buleleng" />
-
-    <meta name="author" content="Prakom Kesbangpol Buleleng" />
-
-    <meta name="robots" content="index, follow" />
-
-    <link rel="canonical" href="{{ url()->current() }}" />
-
-    <meta property="og:title" content="{{ $title ?? 'SI-PANDA Kesbangpol Buleleng' }}" />
-    <meta property="og:description" content="{{ $description ?? 'Sistem Informasi Pembayaran Pajak Kendaraan Dinas Operasional Kesbangpol Buleleng' }}" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="{{ url()->current() }}" />
-    <meta property="og:image" content="{{ asset('img/sipanda.png') }}" />
-    <meta property="og:site_name" content="SI-PANDA Kesbangpol Buleleng" />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="{{ $title ?? 'SI-PANDA Kesbangpol Buleleng' }}" />
-    <meta name="twitter:description" content="{{ $description ?? 'Sistem Informasi Pembayaran Pajak Kendaraan Dinas Operasional' }}" />
-    <meta name="twitter:image" content="{{ asset('img/sipanda.png') }}" />
-
     <link rel="icon" type="image/x-icon" href="{{ asset('ikn_sneat/assets/img/favicon/favicon.ico') }}?v={{ time() }}" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
