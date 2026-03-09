@@ -99,22 +99,22 @@ class CheckJatuhTempo7Hari extends Command
 
         $sisaHari = (int) Carbon::now()->diffInDays(Carbon::parse($kendaraan->tgl_jatuh_tempo), false);
 
-        $message = "🚨 *PERINGATAN URGENT - JATUH TEMPO KENDARAAN* 🚨\n\n";
+        $message = "*PERINGATAN URGENT - JATUH TEMPO KENDARAAN* 🚨\n\n";
         $message .= "Yth. {$kendaraan->user->name},\n\n";
-        $message .= "⚠️ *PERHATIAN!* Kendaraan Anda akan jatuh tempo dalam waktu dekat:\n\n";
-        $message .= "📋 *Detail Kendaraan:*\n";
+        $message .= "*PERHATIAN!* Kendaraan Anda akan jatuh tempo dalam waktu dekat:\n\n";
+        $message .= "*Detail Kendaraan:*\n";
         $message .= "• Kode Barang : {$kendaraan->kode_barang}\n";
         $message .= "• Jenis       : {$kendaraan->jenis_barang}\n";
         $message .= "• Merk/Type   : {$kendaraan->merk_type}\n";
         $message .= "• No. Polisi  : {$kendaraan->N_polisi}\n";
         $message .= "• Tahun       : {$kendaraan->tahun_pembelian}\n\n";
-        $message .= "📅 *Tanggal Jatuh Tempo:* {$tglJatuhTempo}\n";
-        $message .= "⏰ *Sisa Waktu         :* {$sisaHari} hari lagi\n\n";
+        $message .= "*Tanggal Jatuh Tempo:* {$tglJatuhTempo}\n";
+        $message .= "*Sisa Waktu         :* {$sisaHari} hari lagi\n\n";
 
         if ($sisaHari <= 7) {
-            $message .= "🔴 *SEGERA!* Waktu pembayaran sangat terbatas!\n\n";
+            $message .= "*SEGERA!* Waktu pembayaran sangat terbatas!\n\n";
         } else {
-            $message .= "🟡 Mohon segera lakukan pembayaran pajak kendaraan.\n\n";
+            $message .= "Mohon segera lakukan pembayaran pajak kendaraan.\n\n";
         }
 
         $message .= "Terima kasih atas perhatiannya.\n\n";

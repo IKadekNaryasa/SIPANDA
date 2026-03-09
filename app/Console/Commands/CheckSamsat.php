@@ -97,17 +97,17 @@ class CheckSamsat extends Command
 
         $sisaHari = (int) Carbon::now()->diffInDays(Carbon::parse($kendaraan->tgl_jatuh_tempo), false);
 
-        $message = "🚗 *PENGINGAT JATUH TEMPO KENDARAAN* 🚗\n\n";
+        $message = "*PENGINGAT JATUH TEMPO KENDARAAN* 🚗\n\n";
         $message .= "Yth. {$kendaraan->user->name},\n\n";
         $message .= "Kami ingin mengingatkan bahwa kendaraan Anda akan jatuh tempo:\n\n";
-        $message .= "📋 *Detail Kendaraan:*\n";
+        $message .= "*Detail Kendaraan:*\n";
         $message .= "• Kode Barang : {$kendaraan->kode_barang}\n";
         $message .= "• Jenis       : {$kendaraan->jenis_barang}\n";
         $message .= "• Merk/Type   : {$kendaraan->merk_type}\n";
         $message .= "• No. Polisi  : {$kendaraan->N_polisi}\n";
         $message .= "• Tahun       : {$kendaraan->tahun_pembelian}\n\n";
-        $message .= "📅 *Tanggal Jatuh Tempo:* {$tglJatuhTempo}\n";
-        $message .= "⏰ *Sisa Waktu         :* {$sisaHari} hari lagi\n\n";
+        $message .= "*Tanggal Jatuh Tempo:* {$tglJatuhTempo}\n";
+        $message .= "*Sisa Waktu         :* {$sisaHari} hari lagi\n\n";
         $message .= "Mohon segera lakukan pembayaran pajak kendaraan.\n\n";
         $message .= "Terima kasih atas perhatiannya.\n\n";
         $message .= "lakukan konfirmasi pembayaran pajak pada https://sipanda-kesbangpol.iknproject.site/";
