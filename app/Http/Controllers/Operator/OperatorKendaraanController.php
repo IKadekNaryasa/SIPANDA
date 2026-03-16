@@ -22,7 +22,7 @@ class OperatorKendaraanController extends Controller
         $nextMonth = now()->addMonth()->month;
         $nextYear  = now()->addMonth()->year;
 
-        $endOfMonth = now()->endOfMonth(); // 31 Maret 2026
+        $endOfMonth = now()->endOfMonth();
 
         $kendaraanJatuhTempo = Kendaraan::where('user_id', Auth::id())
             ->where(function ($query) use ($today, $sevenDaysLater, $endOfMonth, $nextMonth, $nextYear) {

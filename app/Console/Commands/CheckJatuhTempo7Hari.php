@@ -31,11 +31,10 @@ class CheckJatuhTempo7Hari extends Command
     {
         $this->info('Memulai pengecekan kendaraan jatuh tempo 7 hari...');
 
-        $today = Carbon::now()->startOfDay();
-        $sevenDaysFromNow = Carbon::now()->addDays(7)->endOfDay();
+        $sevenDaysFromNow = Carbon::now()->addDays(7);
 
         $kendaraans = Kendaraan::with('user')
-            ->whereBetween('tgl_jatuh_tempo', [$today, $sevenDaysFromNow])
+            ->whereDate('tgl_jatuh_tempo', $sevenDaysFromNow->toDateString())
             ->whereHas('user', function ($query) {
                 $query->whereNotNull('wa')
                     ->where('wa', '!=', '');
