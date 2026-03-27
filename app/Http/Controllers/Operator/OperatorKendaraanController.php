@@ -16,26 +16,10 @@ class OperatorKendaraanController extends Controller
         $open = 'samsat';
         $link = 'Kendaraan | Jatuh Tempo';
 
-        $today = now();
-        $sevenDaysLater = now()->addDays(7);
-
-        $nextMonth = now()->addMonth()->month;
-        $nextYear  = now()->addMonth()->year;
-
-        $endOfMonth = now()->endOfMonth();
+        $threeMonthsLater = now()->addMonths(3)->endOfDay();
 
         $kendaraanJatuhTempo = Kendaraan::where('user_id', Auth::id())
-            ->where(function ($query) use ($today, $sevenDaysLater, $endOfMonth, $nextMonth, $nextYear) {
-                $query
-                    ->whereBetween('tgl_jatuh_tempo', [$today, $sevenDaysLater])
-
-                    ->orWhereBetween('tgl_jatuh_tempo', [$today, $endOfMonth])
-
-                    ->orWhere(function ($q) use ($nextMonth, $nextYear) {
-                        $q->whereMonth('tgl_jatuh_tempo', $nextMonth)
-                            ->whereYear('tgl_jatuh_tempo', $nextYear);
-                    });
-            })
+            ->where('tgl_jatuh_tempo', '<=', $threeMonthsLater)
             ->orderBy('tgl_jatuh_tempo', 'asc')
             ->get();
 
