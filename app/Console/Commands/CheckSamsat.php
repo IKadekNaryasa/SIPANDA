@@ -97,7 +97,9 @@ class CheckSamsat extends Command
 
         $sisaHari = (int) Carbon::now()->diffInDays(Carbon::parse($kendaraan->tgl_jatuh_tempo), false);
 
-        $message = "*PENGINGAT JATUH TEMPO KENDARAAN* 🚗\n\n";
+        $message = "*INI ADALAH PESAN OTOMATIS!!* \n\n";
+        $message .= "_________________________________ \n\n";
+        $message .= "*PENGINGAT JATUH TEMPO KENDARAAN* \n\n";
         $message .= "Yth. {$kendaraan->user->name},\n\n";
         $message .= "Kami ingin mengingatkan bahwa kendaraan Anda akan jatuh tempo:\n\n";
         $message .= "*Detail Kendaraan:*\n";

@@ -98,7 +98,9 @@ class CheckJatuhTempo7Hari extends Command
 
         $sisaHari = (int) Carbon::now()->diffInDays(Carbon::parse($kendaraan->tgl_jatuh_tempo), false);
 
-        $message = "*PERINGATAN URGENT - JATUH TEMPO KENDARAAN* 🚨\n\n";
+        $message = "*INI ADALAH PESAN OTOMATIS!!* \n\n";
+        $message .= "_________________________________ \n\n";
+        $message .= "*PERINGATAN URGENT - JATUH TEMPO KENDARAAN*\n\n";
         $message .= "Yth. {$kendaraan->user->name},\n\n";
         $message .= "*PERHATIAN!* Kendaraan Anda akan jatuh tempo dalam waktu dekat:\n\n";
         $message .= "*Detail Kendaraan:*\n";
