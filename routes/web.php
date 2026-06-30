@@ -1,13 +1,14 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminDashboard;
+use App\Http\Controllers\ApiClientActivationController;
 use App\Http\Controllers\Operator\OperatorDashboard;
 use App\Http\Controllers\Pengawas\PengawasDashboardController;
 use App\Http\Controllers\Pengawas\PengawasKendaraanController;
 use App\Http\Controllers\Pengawas\PengawasSamsatController;
-use App\Http\Middleware\SIpandaGuest;
 use App\Http\Middleware\SipandaAdmin;
 use App\Http\Middleware\SipandaAuth;
+use App\Http\Middleware\SIpandaGuest;
 use App\Http\Middleware\SipandaOpeartor;
 use App\Http\Middleware\SipandaPengawas;
 use Illuminate\Support\Facades\Route;
@@ -15,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('sipanda');
 })->name('/')->middleware(SIpandaGuest::class);
+
+Route::get('/api-activate/{token}', [ApiClientActivationController::class, 'activate'])
+    ->name('api.activate');
 
 Route::middleware('web')->group(base_path('routes/auth.php'));
 

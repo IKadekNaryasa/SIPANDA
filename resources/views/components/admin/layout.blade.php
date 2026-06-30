@@ -174,6 +174,25 @@
 
                         </ul>
                     </li>
+                    <li class="menu-item {{ ($open == 'api') ? 'open active' : '' }} ">
+                        <a href="javascript:void(0);" class="menu-link menu-toggle">
+                            <i class="menu-icon bx bx-key"></i>
+                            <div data-i18n="Account Settings">API Client</div>
+                        </a>
+                        <ul class="menu-sub">
+                            <li class="menu-item {{ $active == 'dataApiClient' ? 'active' :'' }} ">
+                                <a href="{{ route('api-clients.index') }}" class="menu-link">
+                                    <div data-i18n="Project Data">Data API Client</div>
+                                </a>
+                            </li>
+                            <li class="menu-item {{ $active == 'createApiClient' ? 'active' :'' }} ">
+                                <a href="{{ route('api-clients.create') }}" class="menu-link">
+                                    <div data-i18n="Create Project">Create API Client</div>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
                 </ul>
             </aside>
             <!-- / Menu -->
