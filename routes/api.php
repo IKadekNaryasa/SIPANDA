@@ -10,7 +10,7 @@ Route::get('/user', function (Request $request) {
 
 Route::prefix('v1')->middleware('api.client')->group(function () {
 
-    Route::apiResource('kendaraan', KendaraanController::class)->only(['index']);
+    Route::apiResource('kendaraan-api', KendaraanController::class)->only(['index']);
 
     Route::get('/me', function (\Illuminate\Http\Request $request) {
         $client = $request->get('api_client');
