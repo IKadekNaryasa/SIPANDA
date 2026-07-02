@@ -27,7 +27,7 @@ class KendaraanController extends Controller
             });
         }
 
-        $kendaraans = $query->paginate($request->per_page ?? 15);
+        $kendaraans = $query->get();
 
         return KendaraanResource::collection($kendaraans)->additional([
             'status' => 'success',
