@@ -119,7 +119,6 @@ class CheckJatuhTempo7Hari extends Command
         }
 
         $message .= "Terima kasih atas perhatiannya.\n\n";
-        $message .= "Lakukan konfirmasi pembayaran pajak pada https://sipanda-kesbangpol.iknproject.site/";
 
         try {
             $response = Http::withHeaders([

@@ -112,7 +112,6 @@ class CheckSamsat extends Command
         $message .= "*Sisa Waktu         :* {$sisaHari} hari lagi\n\n";
         $message .= "Mohon segera lakukan pembayaran pajak kendaraan.\n\n";
         $message .= "Terima kasih atas perhatiannya.\n\n";
-        $message .= "lakukan konfirmasi pembayaran pajak pada https://sipanda-kesbangpol.iknproject.site/";
 
         try {
             $response = Http::withHeaders([
