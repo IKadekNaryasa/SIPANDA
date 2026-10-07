@@ -364,7 +364,7 @@
             </div>
 
             <div class="mt-8 pt-6 border-t border-gray-600 text-center">
-                <p class="text-gray-400 text-xs sm:text-sm">&copy; 2025 - {{ date('Y') }} SIPANDA Kesbangpol Buleleng. All Rights Reserved.</p>
+                <p class="text-gray-400 text-xs sm:text-sm">&copy; 2025 - {{ date('Y') }} SIPANDA Kesbangpol Buleleng V1.2. All Rights Reserved.</p>
                 <p class="text-gray-500 text-xs mt-1">Developed by Prakom Kesbangpol Buleleng</p>
             </div>
         </div>
