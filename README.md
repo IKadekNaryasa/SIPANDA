@@ -12,6 +12,8 @@ php artisan users:promote-master <NIP>
 
 Perintah tersebut mengubah role hanya pada akun admin yang NIP-nya disebutkan. Admin selanjutnya dapat mengelola user operator dan pengawas, sedangkan master mengelola API Client serta user dengan role admin dan master.
 
+Admin dapat mengunduh data user yang berada dalam cakupan pengelolaannya serta seluruh data kendaraan dalam format Excel (`.xlsx`). Ekspor kendaraan menampilkan nama pemegang sebagai pengganti UUID user.
+
 <p align="center">
 <a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>

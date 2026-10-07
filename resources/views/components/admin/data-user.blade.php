@@ -5,6 +5,11 @@
     <div class="card mb-4">
         <h5 class="card-header text-center">Data User</h5>
         <div class="card-body">
+            <div class="d-flex justify-content-end mb-3">
+                <a href="{{ route('user.export') }}" class="btn btn-success">
+                    <i class="bx bx-download me-1"></i> Export Excel
+                </a>
+            </div>
             <div class="table-responsive">
                 <table class="table table-striped w-100" id="userTable">
                     <thead>

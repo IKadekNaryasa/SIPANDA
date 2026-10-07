@@ -8,6 +8,7 @@ use App\Models\Kendaraan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Support\ExcelDownload;
 
 class KendaraanController extends Controller
 {
@@ -22,6 +23,68 @@ class KendaraanController extends Controller
         $link = 'Kendaraan | Data Kendaraan';
         $kendaraans = Kendaraan::with('user')->latest()->get();
         return view('admin.kendaraan.index', compact('title', 'active', 'open', 'link', 'kendaraans'));
+    }
+
+    public function export()
+    {
+        $kendaraans = Kendaraan::with('user:id,name')
+            ->orderBy('kode_barang')
+            ->get([
+                'kode_barang',
+                'jenis_barang',
+                'merk_type',
+                'cc',
+                'tahun_pembelian',
+                'N_rangka',
+                'N_mesin',
+                'N_polisi',
+                'harga',
+                'user_id',
+                'tgl_jatuh_tempo',
+                'status',
+                'created_at',
+                'updated_at',
+            ]);
+
+        $rows = $kendaraans->map(fn (Kendaraan $kendaraan) => [
+            $kendaraan->kode_barang,
+            $kendaraan->jenis_barang,
+            $kendaraan->merk_type,
+            $kendaraan->cc,
+            $kendaraan->tahun_pembelian,
+            $kendaraan->N_rangka,
+            $kendaraan->N_mesin,
+            $kendaraan->N_polisi,
+            $kendaraan->harga,
+            $kendaraan->user?->name ?? 'On-Sett',
+            $kendaraan->getRawOriginal('tgl_jatuh_tempo'),
+            $kendaraan->status,
+            $kendaraan->created_at?->format('Y-m-d H:i:s'),
+            $kendaraan->updated_at?->format('Y-m-d H:i:s'),
+        ]);
+
+        return ExcelDownload::download(
+            'data-kendaraan.xlsx',
+            'Data Kendaraan',
+            [
+                'Kode Barang',
+                'Jenis Barang',
+                'Merk/Type',
+                'CC',
+                'Tahun Pembelian',
+                'Nomor Rangka',
+                'Nomor Mesin',
+                'Nomor Polisi',
+                'Harga',
+                'Nama Pemegang',
+                'Tanggal Jatuh Tempo',
+                'Status',
+                'Dibuat',
+                'Diperbarui',
+            ],
+            $rows,
+            [1, 2, 3, 6, 7, 8, 10, 11, 12, 13, 14]
+        );
     }
 
     /**

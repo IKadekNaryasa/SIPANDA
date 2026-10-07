@@ -8,6 +8,7 @@ use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use App\Support\ExcelDownload;
 
 class UserController extends Controller
 {
@@ -22,6 +23,31 @@ class UserController extends Controller
         $link = 'User | Data User';
         $users = User::whereIn('role', ['operator', 'pengawas'])->latest()->get();
         return view('admin.user.index', compact('title', 'active', 'open', 'link', 'users'));
+    }
+
+    public function export()
+    {
+        $users = User::whereIn('role', ['operator', 'pengawas'])
+            ->orderBy('name')
+            ->get(['name', 'nip', 'wa', 'status', 'role', 'created_at', 'updated_at']);
+
+        $rows = $users->map(fn (User $user) => [
+            $user->name,
+            $user->nip,
+            $user->wa,
+            $user->status,
+            $user->role,
+            $user->created_at?->format('Y-m-d H:i:s'),
+            $user->updated_at?->format('Y-m-d H:i:s'),
+        ]);
+
+        return ExcelDownload::download(
+            'data-user.xlsx',
+            'Data User',
+            ['Nama', 'NIP', 'WhatsApp', 'Status', 'Role', 'Dibuat', 'Diperbarui'],
+            $rows,
+            [1, 2, 3, 4, 5, 6, 7]
+        );
     }
 
     /**
