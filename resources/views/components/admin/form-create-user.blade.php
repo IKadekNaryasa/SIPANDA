@@ -1,3 +1,8 @@
+@props([
+    'availableRoles' => ['operator', 'pengawas'],
+    'routePrefix' => 'user',
+])
+
 {{-- Loading Overlay --}}
 <x-overlay></x-overlay>
 
@@ -5,7 +10,7 @@
     <div class="card mb-4">
         <h5 class="card-header text-center">Add New User</h5>
         <div class="card-body">
-            <form action="{{ route('user.store') }}" method="post" enctype="multipart/form-data" id="userForm">
+            <form action="{{ route($routePrefix.'.store') }}" method="post" enctype="multipart/form-data" id="userForm">
                 @csrf
                 <div id="formContainer">
                     <div class="form-item border p-3 mb-3 rounded" data-index="0">
@@ -21,8 +26,11 @@
                             <div class="col-md-4 mb-3">
                                 <label class="form-label">Role</label>
                                 <select name="role" class="form-control" required>
-                                    <option value="operator" selected>Operator</option>
-                                    <option value="admin">Admin</option>
+                                    @foreach ($availableRoles as $role)
+                                    <option value="{{ $role }}" @selected(old('role', $loop->first ? $role : null) === $role)>
+                                        {{ ucfirst($role) }}
+                                    </option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="col-md-4 mb-3">

@@ -129,70 +129,93 @@
                 <div class="menu-inner-shadow"></div>
 
                 <ul class="menu-inner py-1">
-                    <!-- Dashboard -->
-                    <li class="menu-item {{ $active == 'dashboard' ? 'active' : ''  }} ">
-                        <a href="{{ route('dashboard.index') }}" class="menu-link">
+                    @if (auth()->user()->role === 'master')
+                    <li class="menu-item {{ $active == 'dashboard' ? 'active' : '' }}">
+                        <a href="{{ route('master.dashboard.index') }}" class="menu-link">
                             <i class="menu-icon bx bxs-home"></i>
-                            <div data-i18n="Analytics">Dashboard</div>
+                            <div>Dashboard</div>
                         </a>
                     </li>
-                    <li class="menu-item {{ ($open == 'user') ? 'open active' : '' }} ">
+                    <li class="menu-item {{ $open == 'masterUsers' ? 'open active' : '' }}">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
                             <i class="menu-icon bx bxs-user"></i>
-                            <div data-i18n="Account Settings">User</div>
+                            <div>User Master</div>
                         </a>
                         <ul class="menu-sub">
-                            <li class="menu-item {{ $active == 'dataUser' ? 'active' :'' }} ">
-                                <a href="{{ route('user.index') }}" class="menu-link">
-                                    <div data-i18n="Project Data">Data User</div>
+                            <li class="menu-item {{ $active == 'masterUsers' ? 'active' : '' }}">
+                                <a href="{{ route('master.user.index') }}" class="menu-link">
+                                    <div>Data User Master</div>
                                 </a>
                             </li>
-                            <li class="menu-item {{ $active == 'createUser' ? 'active' :'' }} ">
-                                <a href="{{ route('user.create') }}" class="menu-link">
-                                    <div data-i18n="Create Project">Create User</div>
+                            <li class="menu-item {{ $active == 'createMasterUser' ? 'active' : '' }}">
+                                <a href="{{ route('master.user.create') }}" class="menu-link">
+                                    <div>Tambah User</div>
                                 </a>
                             </li>
-
                         </ul>
                     </li>
-                    <li class="menu-item {{ ($open == 'kendaraan') ? 'open active' : '' }} ">
-                        <a href="javascript:void(0);" class="menu-link menu-toggle">
-                            <i class="menu-icon bx bxs-car"></i>
-                            <div data-i18n="Account Settings">Kendaraan</div>
-                        </a>
-                        <ul class="menu-sub">
-                            <li class="menu-item {{ $active == 'dataKendaraan' ? 'active' :'' }} ">
-                                <a href="{{ route('kendaraan.index') }}" class="menu-link">
-                                    <div data-i18n="Project Data">Data Kendaraan</div>
-                                </a>
-                            </li>
-                            <li class="menu-item {{ $active == 'createKendaraan' ? 'active' :'' }} ">
-                                <a href="{{ route('kendaraan.create') }}" class="menu-link">
-                                    <div data-i18n="Create Project">Create Kendaraan</div>
-                                </a>
-                            </li>
-
-                        </ul>
-                    </li>
-                    <li class="menu-item {{ ($open == 'api') ? 'open active' : '' }} ">
+                    <li class="menu-item {{ $open == 'api' ? 'open active' : '' }}">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
                             <i class="menu-icon bx bx-key"></i>
-                            <div data-i18n="Account Settings">API Client</div>
+                            <div>API Client</div>
                         </a>
                         <ul class="menu-sub">
-                            <li class="menu-item {{ $active == 'dataApiClient' ? 'active' :'' }} ">
+                            <li class="menu-item {{ $active == 'dataApiClient' ? 'active' : '' }}">
                                 <a href="{{ route('api-clients.index') }}" class="menu-link">
-                                    <div data-i18n="Project Data">Data API Client</div>
+                                    <div>Data API Client</div>
                                 </a>
                             </li>
-                            <li class="menu-item {{ $active == 'createApiClient' ? 'active' :'' }} ">
+                            <li class="menu-item {{ $active == 'createApiClient' ? 'active' : '' }}">
                                 <a href="{{ route('api-clients.create') }}" class="menu-link">
-                                    <div data-i18n="Create Project">Create API Client</div>
+                                    <div>Create API Client</div>
                                 </a>
                             </li>
-
                         </ul>
                     </li>
+                    @else
+                    <li class="menu-item {{ $active == 'dashboard' ? 'active' : '' }}">
+                        <a href="{{ route('dashboard.index') }}" class="menu-link">
+                            <i class="menu-icon bx bxs-home"></i>
+                            <div>Dashboard</div>
+                        </a>
+                    </li>
+                    <li class="menu-item {{ $open == 'user' ? 'open active' : '' }}">
+                        <a href="javascript:void(0);" class="menu-link menu-toggle">
+                            <i class="menu-icon bx bxs-user"></i>
+                            <div>User</div>
+                        </a>
+                        <ul class="menu-sub">
+                            <li class="menu-item {{ $active == 'dataUser' ? 'active' : '' }}">
+                                <a href="{{ route('user.index') }}" class="menu-link">
+                                    <div>Data User</div>
+                                </a>
+                            </li>
+                            <li class="menu-item {{ $active == 'createUser' ? 'active' : '' }}">
+                                <a href="{{ route('user.create') }}" class="menu-link">
+                                    <div>Create User</div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="menu-item {{ $open == 'kendaraan' ? 'open active' : '' }}">
+                        <a href="javascript:void(0);" class="menu-link menu-toggle">
+                            <i class="menu-icon bx bxs-car"></i>
+                            <div>Kendaraan</div>
+                        </a>
+                        <ul class="menu-sub">
+                            <li class="menu-item {{ $active == 'dataKendaraan' ? 'active' : '' }}">
+                                <a href="{{ route('kendaraan.index') }}" class="menu-link">
+                                    <div>Data Kendaraan</div>
+                                </a>
+                            </li>
+                            <li class="menu-item {{ $active == 'createKendaraan' ? 'active' : '' }}">
+                                <a href="{{ route('kendaraan.create') }}" class="menu-link">
+                                    <div>Create Kendaraan</div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    @endif
                 </ul>
             </aside>
             <!-- / Menu -->

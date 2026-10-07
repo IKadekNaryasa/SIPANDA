@@ -1,5 +1,17 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
+## Role Master
+
+Jalankan migration setelah deployment untuk menambahkan role `master`. Migration ini hanya memperluas pilihan enum `users.role` dan tidak mengubah role user yang sudah tersimpan.
+
+Untuk menyiapkan master pertama kali, promosikan akun admin yang dipilih secara eksplisit:
+
+```sh
+php artisan users:promote-master <NIP>
+```
+
+Perintah tersebut mengubah role hanya pada akun admin yang NIP-nya disebutkan. Admin selanjutnya dapat mengelola user operator dan pengawas, sedangkan master mengelola API Client serta user dengan role admin dan master.
+
 <p align="center">
 <a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>

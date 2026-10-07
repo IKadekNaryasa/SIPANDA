@@ -20,7 +20,7 @@ class UserController extends Controller
         $active = 'dataUser';
         $open = 'user';
         $link = 'User | Data User';
-        $users = User::latest()->get();
+        $users = User::whereIn('role', ['operator', 'pengawas'])->latest()->get();
         return view('admin.user.index', compact('title', 'active', 'open', 'link', 'users'));
     }
 
@@ -29,11 +29,12 @@ class UserController extends Controller
      */
     public function create()
     {
-        $title = 'Create New  User';
+        $title = 'Create New User';
         $active = 'createUser';
         $open = 'user';
         $link = 'User | Create New User';
-        return view('admin.user.create', compact('title', 'active', 'open', 'link'));
+        $availableRoles = ['operator', 'pengawas'];
+        return view('admin.user.create', compact('title', 'active', 'open', 'link', 'availableRoles'));
     }
 
     /**
@@ -44,7 +45,7 @@ class UserController extends Controller
         $validatedData = $request->validate([
             'nama' => 'required|string',
             'nip' => 'required|numeric',
-            'role' => 'required|in:operator,admin',
+            'role' => 'required|in:operator,pengawas',
             'wa' => 'string|required'
         ], [
             'nama.required' => "Nama required!",
@@ -52,7 +53,7 @@ class UserController extends Controller
             'nip.required' => "NIP required!",
             'nip.numeric' => 'NIP must be type of number',
             'role.required' => 'Role required!',
-            'role.in' => 'Role must in operator or admin',
+            'role.in' => 'Role must be operator or pengawas',
             'wa.required' => 'WhatsApp required!',
             'wa.string' => 'whatsApp must be type of text'
         ]);
@@ -92,11 +93,14 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
+        abort_unless(in_array($user->role, ['operator', 'pengawas'], true), 404);
+
         $title = 'Edit Data User';
         $active = 'dataUser';
         $open = 'user';
         $link = 'User | Edit Data User';
-        return view('admin.user.edit', compact('title', 'active', 'open', 'link', 'user'));
+        $availableRoles = ['operator', 'pengawas'];
+        return view('admin.user.edit', compact('title', 'active', 'open', 'link', 'user', 'availableRoles'));
     }
 
     /**
@@ -104,10 +108,12 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
+        abort_unless(in_array($user->role, ['operator', 'pengawas'], true), 404);
+
         $validatedData = $request->validate([
             'nama' => 'required|string',
             'nip' => 'required|numeric',
-            'role' => 'required|in:operator,admin',
+            'role' => 'required|in:operator,pengawas',
             'wa' => 'string|required'
         ], [
             'nama.required' => "Nama required!",
@@ -115,7 +121,7 @@ class UserController extends Controller
             'nip.required' => "NIP required!",
             'nip.numeric' => 'NIP must be type of number',
             'role.required' => 'Role required!',
-            'role.in' => 'Role must in operator or admin',
+            'role.in' => 'Role must be operator or pengawas',
             'wa.required' => 'WhatsApp required!',
             'wa.string' => 'whatsApp must be type of text'
         ]);
@@ -150,6 +156,8 @@ class UserController extends Controller
 
     public function setStatus(User $user, Request $request)
     {
+        abort_unless(in_array($user->role, ['operator', 'pengawas'], true), 404);
+
         $validatedData = $request->validate([
             'status' => 'required|in:active,nonactive',
         ], [

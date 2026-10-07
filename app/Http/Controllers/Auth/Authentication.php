@@ -55,6 +55,9 @@ class Authentication extends Controller
                     case 'admin':
                         $route = 'dashboard.index';
                         break;
+                    case 'master':
+                        $route = 'master.dashboard.index';
+                        break;
                     case 'operator':
                         $route = 'opt.dashboard.index';
                         break;

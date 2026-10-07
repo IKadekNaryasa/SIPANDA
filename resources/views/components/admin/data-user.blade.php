@@ -35,6 +35,8 @@
                             <td style="font-size: small;" class="text-center">
                                 @if ($user->role == 'admin')
                                 <span class="badge bg-primary">{{ $user->role }}</span>
+                                @elseif($user->role == 'master')
+                                <span class="badge bg-dark">{{ $user->role }}</span>
                                 @elseif($user->role == 'operator')
                                 <span class="badge bg-success">{{ $user->role }}</span>
                                 @elseif($user->role == 'pengawas')
@@ -43,12 +45,12 @@
                             </td>
                             <td style="font-size: small;" class="text-center">
                                 <div class="d-inline-flex gap-2">
-                                    <a href="{{ route('user.edit',$user->id) }}" class="text-warning"
+                                    <a href="{{ route($routePrefix.'.edit',$user->id) }}" class="text-warning"
                                         data-bs-toggle="tooltip" data-bs-placement="left" title="edit">
                                         <i class='bx bxs-edit'></i>
                                     </a>
 
-                                    <form action="{{ route('user.setStatus',$user->id) }}" method="POST"
+                                    <form action="{{ route($routePrefix.'.setStatus',$user->id) }}" method="POST"
                                         id="formUpdateUser{{ $user->id }}" class="d-inline">
                                         @csrf
                                         @method('PUT')

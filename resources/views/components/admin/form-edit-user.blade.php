@@ -5,7 +5,7 @@
     <div class="card mb-4">
         <h5 class="card-header text-center">Edit User</h5>
         <div class="card-body">
-            <form action="{{ route('user.update',$user->id) }}" method="post" enctype="multipart/form-data" id="userForm">
+            <form action="{{ route($routePrefix.'.update',$user->id) }}" method="post" enctype="multipart/form-data" id="userForm">
                 @csrf
                 @method('PUT')
                 <div id="formContainer">
@@ -22,9 +22,11 @@
                             <div class="col-md-4 mb-3">
                                 <label class="form-label">Role</label>
                                 <select name="role" class="form-control" required>
-                                    <option value="{{ $user->role }}" selected>{{ $user->role }}</option>
-                                    <option value="operator">Operator</option>
-                                    <option value="admin">Admin</option>
+                                    @foreach ($availableRoles as $role)
+                                    <option value="{{ $role }}" @selected(old('role', $user->role) === $role)>
+                                        {{ ucfirst($role) }}
+                                    </option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="col-md-4 mb-3">

@@ -85,6 +85,7 @@ class UserSeeder extends Seeder
             'wa' => '087864365344',
             'nip' => '200206092025061001',
             'password' => Hash::make('25061001'),
+            'role' => 'master',
             'created_at' => now(),
             'updated_at' => now(),
         ];

@@ -12,7 +12,7 @@ class dataUser extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct($users)
+    public function __construct($users, public string $routePrefix = 'user')
     {
         $this->users = $users;
     }

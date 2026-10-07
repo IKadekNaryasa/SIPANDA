@@ -12,7 +12,9 @@ class formEditUser extends Component
      * Create a new component instance.
      */
     public function __construct(
-        public array|object $user
+        public array|object $user,
+        public array $availableRoles = ['operator', 'pengawas'],
+        public string $routePrefix = 'user'
     ) {
         //
     }
